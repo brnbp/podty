@@ -59,7 +59,7 @@
                     <div class="text-center m-t m-b"><a href="{{ url('password/reset') }}"><small>Forgot password?</small></a></div>
                     <div class="line line-dashed"></div>
                     <p class="text-muted text-center"><small>Do not have an account?</small></p>
-                    <a href="{{url('register')}}" class="btn btn-lg btn-info lt  btn-block btn-rounded">Create an account</a>
+                    <a href="{{url('register')}}" class="btn btn-lg btn-dark btn-block btn-rounded">Create an account</a>
                 </form>
             </section>
         </div>

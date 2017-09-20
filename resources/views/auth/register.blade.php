@@ -59,7 +59,7 @@
                         </button>
                         <div class="line line-dashed"></div>
                         <p class="text-muted text-center"><small>Already have an account?</small></p>
-                        <a href="login" class="btn btn-lg btn-info lt  btn-block btn-rounded">Login</a>
+                        <a href="login" class="btn btn-lg btn-dark btn-block btn-rounded">Login</a>
 
                     </form>
             </section>
