@@ -85,21 +85,25 @@
         <div class="navbar-right ">
             <ul class="nav navbar-nav m-n hidden-xs nav-user user">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle bg clear" data-toggle="dropdown">
-                        <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
-                            <img src="https://www.gravatar.com/avatar/{{md5(strtolower(trim(Auth::user()->email)))}}?d=retro">
+                    <div class="dropdown-toggle bg clear text-center" data-toggle="dropdown">
+                        <span class="">
+                            <img class="rounded thumb-wrapper thumb-md" src="https://www.gravatar.com/avatar/{{md5(strtolower(trim(Auth::user()->email)))}}?d=retro">
                         </span>
-                        {{ Auth::user()->name }}<b class="caret"></b>
-                    </a>
+                    </div>
                     <ul class="dropdown-menu animated fadeInRight">
-                        {{--<li>
-                            <span class="arrow top"></span>
-                            <a href="#">Settings</a>
-                        </li>--}}
+                        <li class="visible-xs">
+                            <a href="/podcasts">My Podcasts</a>
+                        </li>
+                        <li class="visible-xs">
+                            <a href="/favorites">Favorites</a>
+                        </li>
+                        <li class="visible-xs">
+                            <a href="/listening">Listening</a>
+                        </li>
+                        <li class="divider"></li>
                         <li>
                             <a href="/profile">Profile</a>
                         </li>
-                        <li class="divider"></li>
                         <li>
                             <form action="{{ url('/logout') }}" method="POST" id="logout-form">
                                 {{ csrf_field() }}
