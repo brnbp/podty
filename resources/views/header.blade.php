@@ -85,8 +85,8 @@
         <div class="navbar-right ">
             <ul class="nav navbar-nav m-n hidden-xs nav-user user">
                 <li class="dropdown">
-                    <div class="dropdown-toggle bg clear text-center" data-toggle="dropdown">
-                        <span class="">
+                    <div class="dropdown-toggle bg clear text-center hidden-xs" data-toggle="dropdown" style="padding:20px;">
+                        <span class="m-b-n-sm m-t-n-sm pull-right thumb-sm">
                             <img class="rounded thumb-wrapper thumb-md" src="https://www.gravatar.com/avatar/{{md5(strtolower(trim(Auth::user()->email)))}}?d=retro">
                         </span>
                     </div>
