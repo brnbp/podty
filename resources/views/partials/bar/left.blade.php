@@ -7,7 +7,7 @@
                         <ul class="nav bg">
                             <li>
                                 <a href="/">
-                                    <i class="icon-folder icon text-info"></i>
+                                    <i class="icon-list icon text-info"></i>
                                     <span class="font-bold">My Episodes</span>
                                 </a>
                             </li>
