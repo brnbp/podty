@@ -10,11 +10,11 @@
 </script>
 
 <header class="bg-black header header-md navbar navbar-fixed-top-xs">
-    <div class="navbar-header aside nav-xs">
+    <div class="navbar-header aside nav-md">
         <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
             <i class="icon-list"></i>
         </a>
-        <a href="/" class="navbar-brand text-lt">
+        <a href="/" class="navbar-brand text-lt text-center">
             <i class="icon-earphones"></i>
             <img src="" alt="." class="hide">
             <span class="hidden-nav-xs m-l-sm">Podty</span>
@@ -27,17 +27,18 @@
         </ul>
 
         @if(Auth::user() && in_array(Route::getCurrentRoute()->uri(), ['/', 'discover']))
-            <div class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search">
+            <div style="margin-left:10px" class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search">
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-btn">
-                          <button type="submit" class="btn btn-sm bg-white btn-icon rounded btn-find-cast">
+                          <button type="submit" class="btn btn-sm bg-white btn-icon btn-find-cast">
                               <i class="fa fa-search"></i>
                           </button>
                         </span>
                         <input type="text" id="find-cast"
-                               class="form-control input-sm no-border rounded"
+                               class="form-control input-sm no-border"
                                placeholder="Search podcasts"
+                               style="width: 200%; !important;"
                         >
                     </div>
                 </div>
