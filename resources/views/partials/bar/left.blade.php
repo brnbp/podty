@@ -7,13 +7,13 @@
                         <ul class="nav bg">
                             <li>
                                 <a href="/discover">
-                                    <i class="icon icon-bell text-info"></i>
+                                    <i class="icon icon-fire text-info"></i>
                                     <span class="font-bold">Discover</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="/podcasts">
-                                    <i class="icon-microphone icon text-info"></i>
+                                    <i class="icon-folder icon text-info"></i>
                                     <span class="font-bold">My Podcasts</span>
                                 </a>
                             </li>

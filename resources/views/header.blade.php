@@ -100,7 +100,7 @@
                         <li class="visible-xs">
                             <a href="/listening">Listening</a>
                         </li>
-                        <li class="divider"></li>
+                        <li class="divider visible-xs"></li>
                         <li>
                             <a href="/profile">Profile</a>
                         </li>
