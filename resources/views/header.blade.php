@@ -12,7 +12,7 @@
 <header class="bg-black header header-md navbar navbar-fixed-top-xs">
     <div class="navbar-header aside nav-md">
         <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
-            <i class="icon-list"></i>
+            <i class="fa fa-bars"></i>
         </a>
         <a href="/" class="navbar-brand text-lt text-center">
             <i class="icon-earphones"></i>
@@ -52,13 +52,13 @@
             <ul class="nav navbar-nav m-n hidden-xs nav-user user">
                 <li class="hidden-xs">
                     <a href="{{ url('login') }}">
-                        <i class="fa fa-sign-in text-success" style="padding-right: 5px"></i>
+                        <i class="fa fa-sign-in text-info" style="padding-right: 5px"></i>
                          Login
                     </a>
                 </li>
                 <li class="hidden-xs">
                     <a href="{{ url('register') }}">
-                        <i class="fa fa-users text-success" style="padding-right: 5px"></i>
+                        <i class="fa fa-users text-info" style="padding-right: 5px"></i>
                         Register
                     </a>
                 </li>
@@ -66,14 +66,14 @@
                     <ul class="dropdown-menu animated fadeInRight">
                         <li>
                             <a href="{{ url('login') }}">
-                                <i class="fa fa-sign-in text-success"></i>
+                                <i class="fa fa-sign-in text-info"></i>
                                 Login
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a href="{{ url('register') }}">
-                                <i class="fa fa-users text-success"></i>
+                                <i class="fa fa-users text-info"></i>
                                 Register
                             </a>
                         </li>
