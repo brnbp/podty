@@ -6,9 +6,9 @@
                     <nav class="nav-primary hidden-xs">
                         <ul class="nav bg">
                             <li>
-                                <a href="/discover">
-                                    <i class="icon icon-fire text-info"></i>
-                                    <span class="font-bold">Discover</span>
+                                <a href="/">
+                                    <i class="icon-folder icon text-info"></i>
+                                    <span class="font-bold">My Episodes</span>
                                 </a>
                             </li>
                             <li>
@@ -27,6 +27,12 @@
                                 <a href="/listening">
                                     <i class="icon-clock icon text-info"></i>
                                     <span class="font-bold">Listening</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/discover">
+                                    <i class="icon icon-fire text-info"></i>
+                                    <span class="font-bold">Discover</span>
                                 </a>
                             </li>
                         </ul>
