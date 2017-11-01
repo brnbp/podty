@@ -1,9 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Events\AnalyticsPageView;
 use App\Format;
+use App\Http\Middleware\VerifyUserLogged;
 use App\Podty\Podcasts;
 use App\Podty\UserEpisodes;
 use App\Podty\UserPodcasts;
@@ -19,6 +19,7 @@ class PodcastController extends Controller
 
     public function __construct()
     {
+        $this->middleware(VerifyUserLogged::class)->only('home');
         $this->podcastsApi = new Podcasts;
         $this->userPodcasts = new UserPodcasts;
     }

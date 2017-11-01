@@ -1,10 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Middleware\AjaxAuth;
+use App\Http\Middleware\VerifyUserLogged;
 use App\Podty\UserEpisodes;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
 class UserEpisodesController extends Controller
@@ -13,6 +12,7 @@ class UserEpisodesController extends Controller
 
     public function __construct(UserEpisodes $userEpisode)
     {
+        $this->middleware(VerifyUserLogged::class)->only('listening');
         $this->middleware(AjaxAuth::class)->except('listening');
         $this->userEpisode = $userEpisode;
     }
@@ -31,13 +31,9 @@ class UserEpisodesController extends Controller
     {
         $this->userEpisode->detachAll(Auth::user()->name, $podcastId);
     }
-    
+
     public function listening()
     {
-        if (!Auth::user()) {
-            return redirect('/');
-        }
-        
         $episodes = $this->userEpisode->listening(Auth::user()->name);
     
         return view('listening')->with([

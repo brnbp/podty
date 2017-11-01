@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Middleware\AjaxAuth;
+use App\Http\Middleware\VerifyUserLogged;
 use App\Podty\UserEpisodes;
 use App\Podty\UserFavorites;
 use Illuminate\Support\Collection;
@@ -14,14 +15,12 @@ class UserFavoritesController extends Controller
     public function __construct(UserFavorites $userFavorites)
     {
         $this->middleware(AjaxAuth::class)->except('all');
+        $this->middleware(VerifyUserLogged::class)->only('all');
         $this->userFavorites = $userFavorites;
     }
 
     public function all()
     {
-        if (!Auth::user()) {
-            return redirect('/');
-        }
         $favorites = $this->userFavorites->all(Auth::user()->name);
         $favorites = collect($favorites['data'] ?? []);
 
