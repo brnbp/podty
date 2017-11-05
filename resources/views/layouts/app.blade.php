@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/css/simple-line-icons.css" type="text/css" />
     <link rel="stylesheet" href="/css/font.css" type="text/css" />
     <link rel="stylesheet" href="/css/app.css" type="text/css" />
-
+    
     @yield('head')
 </head>
 <body class="bg-dark body">

@@ -1,7 +1,12 @@
 @extends('layouts.app')
 @section('title', $podcast['episodes']['title'] . ' - Podty')
 
-@include('layouts.meta-episodes')
+@include('layouts.meta', [
+    'creator' => 'Podty' . $podcast['episodes']['title'],
+    'title' => $podcast['name'] . ' - ' . $podcast['episodes']['title'],
+    'url' => 'https://podty.co/episodes/' . $podcast['episodes']['id'],
+    'image' => $podcast['episodes']['image'] ?: $podcast['thumbnail_600'],
+])
 
 @section('content')
     <section class="vbox">
@@ -38,6 +43,12 @@
                                 </div>
                             </div>
                         </section>
+                        
+                        @include('partials.buttons-social', [
+                            'title' => 'Podty - ' . $podcast['episodes']['title'],
+                            'url' => 'https://podty.co/episodes/' . $podcast['episodes']['id']
+                        ])
+    
                         @include('partials.connected')
                     </section>
                 </section>
