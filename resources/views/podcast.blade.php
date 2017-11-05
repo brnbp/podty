@@ -2,7 +2,7 @@
 @section('title', str_limit($data['podcast']['name'], 20) . ' - Podty')
 
 @section('head')
-    <link rel="stylesheet" href="/css/sharer.css" type="text/css" />
+    <link rel="stylesheet" href="/css/sharer.css" type="text/css"/>
 @endsection
 
 @include('layouts.meta', [
@@ -19,74 +19,81 @@
             
             @include('partials.bar.left')
             
-            <section id="content" class="padding-top-50">
-                <section class="vbox">
-                    <section class="w-f-md">
-                        <section class="hbox stretch bg-light dk">
-                            <section class="col-sm-2 no-padder bg-black">
-                                <section class="vbox scrollable" id="sidebar">
-                                    <div class="item pos-rlt">
-                                        <div class="bottom gd bg-info wrapper-md podcast-image-texts">
-                                            <span class="pull-right text-sm">{{$data['podcast']['total_episodes']}} <br>Episodes</span>
-                                            <span class="text-sm">{{count($data['listeners'])}} <br> Listeners</span>
-                                        </div>
-                                        <img class="img-full podcast-image" src="{{$data['podcast']['thumbnail_600']}}">
+            <div class="vbox">
+                    <div class="container">
+                        <div class="row" style="height:40%;">
+                            <div class="col-md-3" style="padding-left:0;">
+                                <img
+                                    class="podcast-image"
+                                    src="{{$data['podcast']['thumbnail_600']}}"
+                                    style="width: 200px">
+                                
+                                @if(Auth::user())
+                                    <div class="button-follow ">
+                                        <button class="btn btn-lg btn-info btn-rounded {{$data['userFollows'] ? 'btn-ufllw':'btn-fllw'}}"
+                                                data-follows="{{$data['userFollows']}}">
+                                            {{$data['userFollows'] ? 'Unfollow':'Follow'}}
+                                        </button>
                                     </div>
-                                    <div id="audio" hidden>
-                                        <audio controls id="player" style="width: 100%">
-                                            <source src="" id="source">
-                                        </audio>
-                                        <div id="playing">
-                                            <span class="center"></span>
-                                        </div>
+                                @else
+                                    <div class="text-center">
+                                        <small>
+                                            <a href="/login">Login</a> or <a href="/register">Register</a>
+                                            <br>to follow this podcast
+                                        </small>
                                     </div>
-                                    <br>
-                                    @if(Auth::user())
-                                        <div class="button-follow col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-xs-offset-4">
-                                            <button class="btn btn-lg btn-info btn-rounded {{$data['userFollows'] ? 'btn-ufllw':'btn-fllw'}}" data-follows="{{$data['userFollows']}}">
-                                                {{$data['userFollows'] ? 'Unfollow':'Follow'}}
-                                            </button>
-                                        </div>
-                                    @else
-                                        <div class="text-center">
-                                            <small>
-                                                <a href="/login">Login</a> or <a href="/register">Register</a>
-                                                <br>to follow this podcast
-                                            </small>
-                                        </div>
-                                    @endif
-                                    
-                                    @include('partials.buttons-social', [
-                                        'title' => str_limit($data['podcast']['name'], 20),
-                                        'url' => 'https://podty.co/podcasts/' . $data['podcast']['slug'],
-                                        'split' => true
-                                    ])
-                                    
-                                    <div style="margin-left:5px;margin-top:25px;">
-                                        <h4>People who listen:</h4>
-                                        @forelse($data['listeners'] as $listener)
-                                            <a href="/profile/{{$listener['username']}}" style="margin-left:5px">
-                                                <img src="https://www.gravatar.com/avatar/{{$listener['email_hash']}}?d=retro"
-                                                     alt="{{$listener['username']}}" class="img-circle"
-                                                     width="40" height="40" style="margin-bottom: 5px;">
-                                            </a>
-                                        @empty
-                                            <h4 class="text-sm">Be the first to follow this podcast!</h4>
-                                        @endforelse
+                                @endif
+                                
+                                @include('partials.buttons-social', [
+                                    'title' => str_limit($data['podcast']['name'], 20),
+                                    'url' => 'https://podty.co/podcasts/' . $data['podcast']['slug'],
+                                ])
+                            </div>
+                            <div class="col-md-4">
+                                <h2>{{$data['podcast']['name']}}</h2>
+                                <br><br>
+                                <span class="text-sm">{{$data['podcast']['total_episodes']}} Episodes</span>
+                                <br><br>
+                                <p>
+                                    {{$data['podcast']['description']}}
+                                </p>
+    
+                                <div id="audio" hidden>
+                                    <audio controls id="player" style="width: 100%">
+                                        <source src="" id="source">
+                                    </audio>
+                                    <div id="playing">
+                                        <span class="center"></span>
                                     </div>
-                                </section>
-                            </section>
+                                </div>
+                            </div>
+                            <div class="col-md-4" >
+                                <h4>People who listen:</h4>
+                                @forelse($data['listeners'] as $listener)
+                                    <a href="/profile/{{$listener['username']}}" style="margin-left:5px">
+                                        <img src="https://www.gravatar.com/avatar/{{$listener['email_hash']}}?d=retro"
+                                             alt="{{$listener['username']}}" class="img-circle"
+                                             width="40" height="40" style="margin-bottom: 5px;">
+                                    </a>
+                                @empty
+                                    <h4 class="text-sm">Be the first to follow this podcast!</h4>
+                                @endforelse
+                                <br>
+                                <span class="text-sm">{{count($data['listeners'])}} Listeners</span>
+                            </div>
                             
-                            <section class="col-sm-5 no-padder bg-black dk" style="padding-top: 10px !important;">
-                                <section class="vbox">
-                                    <section class="scrollable" id="podcast-list" style="padding-bottom: 10px;">
-                                        <div class="m-t-n-xxs item pos-rlt">
-                                            <ul id="podcast-ul" class="list-group list-group-lg no-radius no-border no-bg m-t-n-xxs m-b-none auto">
+                        </div>
+                        <div class="row">
+                            <section class="vbox bg-black ">
+                                    <section class="scrollable" id="podcast-list">
+                                        <ul id="podcast-ul"
+                                                class="list-group list-group-lg no-radius no-border no-bg m-t-n-xxs m-b-none auto">
                                                 @foreach($data['episodes'] as $episode)
                                                     <li class="list-group-item">
                                                         <div class="pull-right m-l">
                                                             @if(Auth::user())
-                                                                <a href="#" class="m-r-sm m-b-sm btn-fav-ep" data-toggle="class">
+                                                                <a href="#" class="m-r-sm m-b-sm btn-fav-ep"
+                                                                   data-toggle="class">
                                                                     <i class="fa fa-heart-o text"></i>
                                                                     <i class="fa fa-heart text-active text-danger"></i>
                                                                 </a>
@@ -96,7 +103,8 @@
                                                             </a>
                                                         </div>
                                                         
-                                                        <a href="#" class="play-me active m-r-sm pull-left" data-toggle="class">
+                                                        <a href="#" class="play-me active m-r-sm pull-left"
+                                                           data-toggle="class">
                                                             <input type="hidden"
                                                                    value="{{$episode['media_url']}}"
                                                                    data-title="{{$episode['title']}}"
@@ -108,23 +116,28 @@
                                                         </a>
                                                         
                                                         <div class="clear text-ellipsis m-l-xl">
-                                                            <span><a href="#" class="text-ellipsis" data-toggle="modal" data-target="#myModal{{$episode['id']}}">{{$episode['title']}}</a></span>
+                                                            <span><a href="#" class="text-ellipsis" data-toggle="modal"
+                                                                     data-target="#myModal{{$episode['id']}}">{{$episode['title']}}</a></span>
                                                             <span class="text-muted pull-right m-r-lg">{{$episode['duration'] == '' ? '00:00:00' : $episode['duration']}}</span>
                                                         </div>
                                                         <div class="m-l-xl m-t-n-sm">
                                                             {{ (new \DateTime($episode['published_at']))->format('d/m/Y H:i')}}
                                                         </div>
                                                         
-                                                        <div class="modal fade" id="myModal{{$episode['id']}}" role="dialog">
+                                                        <div class="modal fade" id="myModal{{$episode['id']}}"
+                                                             role="dialog">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content bg-dark">
-                                                                    <div class="modal-body" style="overflow: scroll; max-height: 300px;">
+                                                                    <div class="modal-body"
+                                                                         style="overflow: scroll; max-height: 300px;">
                                                                         <h4 class="modal-title">{{$episode['title']}}</h4>
                                                                         <hr>
                                                                         <?= !empty($episode['content']) ? $episode['content'] : $episode['summary']?>
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-info btn-rounded" data-dismiss="modal">
+                                                                        <button type="button"
+                                                                                class="btn btn-info btn-rounded"
+                                                                                data-dismiss="modal">
                                                                             Close
                                                                         </button>
                                                                     </div>
@@ -134,14 +147,13 @@
                                                     </li>
                                                 @endforeach
                                             </ul>
-                                        </div>
                                     </section>
                                 </section>
-                            </section>
-                        </section>
-                    </section>
-                </section>
-            </section>
+                        </div>
+                    
+                    </div>
+                </div>
+
         </section>
     </section>
     <script>
