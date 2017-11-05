@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('title', $podcast['episodes']['title'] . ' - Podty')
 
+@include('layouts.meta-episodes')
+
 @section('content')
     <section class="vbox">
         @include('header')

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="app bg-dark">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta name="theme-color" content="#232c32">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     @yield('meta')
 
