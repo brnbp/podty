@@ -63,18 +63,11 @@ a.sharer[data-sharer="pocket"] {
   box-shadow: 0 0 0 #EE4056, 1px 2px 4px rgba(0,0,0,0.2);
 }
 
-
-a.sharer:active {
-  box-shadow: 0 0 0 transparent;
-  transform: translateY(2px);
-}
-
 a.sharer:hover {
     opacity: 0.8;
-    transition: all 0.5s;
-	transform: scale(1.1);
+    transition: all 0.5s linear;
 }
 
-a.sharer:hover:after {
-  opacity: 0;
+.sharer-split {
+  margin-top: 25px;
 }
