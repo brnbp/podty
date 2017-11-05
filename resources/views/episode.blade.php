@@ -18,14 +18,11 @@
                     <section class="hbox stretch">
                         <section class="scrollable">
                             <div class="text-center">
-                                <div class="
-                                        col-lg-6 col-lg-offset-3
-                                        col-md-4 col-md-offset-4
-                                        col-sm-6 col-sm-offset-4
-                                        ">
+                                <div class="col-lg-6 col-lg-offset-3 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-4">
                                     <h2>
                                         <a href="/podcasts/{{$podcast['slug']}}">{{$podcast['name']}}</a>
                                     </h2>
+                                    
                                     <h3>
                                         {{$podcast['episodes']['title']}}
                                         <small>
@@ -33,21 +30,20 @@
                                             {{(new \DateTime($podcast['episodes']['published_at']))->format('d/m/Y H:i')}}
                                         </small>
                                     </h3>
-
-                                    <br>
+                                    
+                                    @include('partials.buttons-social', [
+                                        'title' => $podcast['name'] . ' - ' . $podcast['episodes']['title'],
+                                        'url' => 'https://podty.co/episodes/' . $podcast['episodes']['id']
+                                    ])
+                                    
                                     <img src="{{$podcast['episodes']['image'] ?: $podcast['thumbnail_600']}}" width="250">
-                                    <hr>
+                                    <br><br>
                                     <audio controls id="player" style="width: 100%">
                                         <source src="{{$podcast['episodes']['media_url']}}" id="source">
                                     </audio>
                                 </div>
                             </div>
                         </section>
-                        
-                        @include('partials.buttons-social', [
-                            'title' => $podcast['name'] . ' - ' . $podcast['episodes']['title'],
-                            'url' => 'https://podty.co/episodes/' . $podcast['episodes']['id']
-                        ])
     
                         @include('partials.connected')
                     </section>
