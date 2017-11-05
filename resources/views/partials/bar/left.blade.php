@@ -38,8 +38,8 @@
                     </ul>
                 </nav>
             </div>
-            <div style="height: 70%;overflow: auto;">
-                <nav class="nav-primary hidden-xs" style="margin-top: 5px;">
+            <div style="height: 70%;overflow: auto;" class="hidden-xs">
+                <nav class="nav-primary" style="margin-top: 5px;">
                     <h4 class="text-center">Podcasts</h4>
                     <ul class="nav" id="podcasts-list-left-side">
                     </ul>

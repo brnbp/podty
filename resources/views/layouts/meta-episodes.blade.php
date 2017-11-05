@@ -9,11 +9,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="{{$podcast['name']}} - {{$podcast['episodes']['title']}}">
-<meta name="twitter:title" content="{{$podcast['name']}} - {{$podcast['episodes']['title']}}">
-<meta name="twitter:description" content="{{$podcast['name']}} - {{$podcast['episodes']['title']}}">
 <meta name="twitter:site" content="https://podty.co/episodes/{{$podcast['episodes']['id']}}">
 <meta name="twitter:creator" content="Podty - {{$podcast['name']}}">
-<meta name="twitter:image:src" content="{{$podcast['episodes']['image'] ?: $podcast['thumbnail_600']}}">
 <!-- Twitter - Article -->
 
 <!-- Open Graph general (Facebook, Pinterest & Google+) -->
