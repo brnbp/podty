@@ -4,7 +4,10 @@
 
 <button class="sharer button" data-sharer="twitter"
         data-title="{{$title}}"
+        data-via="podtyco"
+        data-hashtags="podty"
         data-url="{{$url}}">
+    
     <i class="fa fa-twitter"></i>
 </button>
 
@@ -19,13 +22,13 @@
 </button>
 
 <button class="sharer button" data-sharer="whatsapp"
-        data-title="{{$title}}"
+        data-title="Podty - {{$title}}"
         data-url="{{$url}}">
     <i class="fa fa-whatsapp"></i>
 </button>
 
 <button class="sharer button" data-sharer="telegram"
-        data-title="{{$title}}"
+        data-title="Podty - {{$title}}"
         data-url="{{$url}}">
     <i class="fa fa-telegram"></i>
 </button>
@@ -36,7 +39,7 @@
 </button>
 
 <button class="sharer button" data-sharer="pocket"
-        data-title="{{$title}}"
+        data-title="Podty - {{$title}}"
         data-url="{{$url}}">
     <i class="fa fa-get-pocket"></i>
 </button>

@@ -45,7 +45,7 @@
                         </section>
                         
                         @include('partials.buttons-social', [
-                            'title' => 'Podty - ' . $podcast['episodes']['title'],
+                            'title' => $podcast['episodes']['title'],
                             'url' => 'https://podty.co/episodes/' . $podcast['episodes']['id']
                         ])
     
