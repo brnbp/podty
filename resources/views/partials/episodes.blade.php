@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <a href="#">
-                    <img src="{{$episode['episode']['image'] ?: $episode['thumbnail_100']}}" class="r r-2x img-full">
+                    <img src="{{$episode['episode']['image'] ?: $episode['thumbnail_100'] ?? $episode['feed']['thumbnail_100']}}" class="r r-2x img-full">
                 </a>
             </div>
             <div class="padder-v">
