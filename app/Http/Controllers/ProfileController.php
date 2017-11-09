@@ -51,10 +51,7 @@ class ProfileController extends Controller
         $response = $this->users->friends(Auth::user()->name);
 
         return $response->filter(function($friend) use ($user) {
-            if ($friend['username'] == $user['username']) {
-                return true;
-            }
-           return false;
+            return $friend['username'] == $user['username'];
         });
     }
 
