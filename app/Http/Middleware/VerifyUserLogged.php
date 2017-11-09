@@ -16,7 +16,7 @@ class VerifyUserLogged
     public function handle($request, Closure $next)
     {
         if (Auth::guest()) {
-            return redirect('/login');
+            return redirect()->secure('/login');
         }
 
         return $next($request);
