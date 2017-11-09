@@ -15,10 +15,14 @@ class VerifyUserLogged
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::guest()) {
-            return redirect()->secure('/login');
+        if (Auth::check()) {
+            return $next($request);
         }
 
-        return $next($request);
+        if (env('APP_ENV') === 'local') {
+            return redirect('/login');
+        }
+
+        return redirect()->secure('/login');
     }
 }
