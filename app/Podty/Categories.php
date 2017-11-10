@@ -29,6 +29,15 @@ class Categories
         return $this->returnDefaultResponse($categories);
     }
 
+    public function podcasts(int $id): Collection
+    {
+        $categories = Cache::remember("categories.{$id}.podcasts", 360, function() use($id) {
+            return $this->api->get('categories/' . $id . '/feeds');
+        });
+
+        return $this->returnDefaultResponse($categories);
+    }
+
     private function returnDefaultResponse($response): Collection
     {
         return $response ? collect($response['data']) : collect([]);

@@ -32,6 +32,7 @@ Route::get('podcasts', 'PodcastController@home');
 Route::get('podcasts/{podcastId}', 'PodcastController@podcast');
 
 Route::get('categories', 'CategoriesController@home');
+Route::get('categories/{category}', 'CategoriesController@one');
 
 Route::get('favorites', 'UserFavoritesController@all');
 Route::get('listening', 'UserEpisodesController@listening');
