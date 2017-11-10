@@ -30,6 +30,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="/categories">
+                                <i class="icon icon-list text-info"></i>
+                                <span class="font-bold">Categories</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="/discover">
                                 <i class="icon icon-fire text-info"></i>
                                 <span class="font-bold">Discover</span>
