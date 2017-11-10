@@ -31,6 +31,8 @@ Route::get('ajax/discover', 'PodcastController@top');
 Route::get('podcasts', 'PodcastController@home');
 Route::get('podcasts/{podcastId}', 'PodcastController@podcast');
 
+Route::get('categories', 'CategoriesController@home');
+
 Route::get('favorites', 'UserFavoritesController@all');
 Route::get('listening', 'UserEpisodesController@listening');
 
